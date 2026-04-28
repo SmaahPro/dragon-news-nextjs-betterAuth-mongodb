@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaRegBookmark, FaShareAlt, FaEye, FaStar } from "react-icons/fa";
 
@@ -75,9 +76,12 @@ const NewsCategory = ({ categoryId }) => {
                                     {item.details.slice(0, 180)}...
                                 </p>
 
-                                <button className="text-orange-500 font-bold mt-3">
+                                <Link
+                                    href={`/news/${item._id}`}
+                                    className="text-orange-500 font-bold mt-3 inline-block"
+                                >
                                     Read More
-                                </button>
+                                </Link>
                             </div>
 
                             <div className="border-t border-gray-200 px-4 py-4 flex justify-between items-center">
