@@ -6,7 +6,7 @@ const BreakingNews = () => {
             <button className="btn bg-red-700 text-white">Latest News</button>
             <Marquee pauseOnHover={true}>
                 HELLO GUYS HOW ARE YOU. Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Fugit iste et itaque, velit eligendi aliquid labore at rem deserunt aperiam. 
+                consectetur adipisicing elit. Fugit iste et itaque, velit eligendi aliquid labore at rem deserunt aperiam.
             </Marquee>
         </div>
     );
