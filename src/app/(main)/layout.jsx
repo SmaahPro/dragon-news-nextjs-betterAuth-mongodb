@@ -11,18 +11,16 @@ export default function MainLayout({ children }) {
     const isNewsDetailsPage = pathname.includes("/news/");
 
     return (
-        <html lang="en">
-            <body>
-                {!isNewsDetailsPage && (
-                    <>
-                        <Header />
-                        <BreakingNews />
-                        <Navbar />
-                    </>
-                )}
+        <body>
+            {!isNewsDetailsPage && (
+                <>
+                    <Header />
+                    <BreakingNews />
+                    <Navbar />
+                </>
+            )}
 
-                <main>{children}</main>
-            </body>
-        </html>
+            <main>{children}</main>
+        </body>
     );
 }

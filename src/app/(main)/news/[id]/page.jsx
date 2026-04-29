@@ -40,7 +40,7 @@ const NewsDetailsPage = async ({ params }) => {
                 href="/"
                 className="inline-flex items-center gap-2 bg-[#D72050] text-white px-6 py-3 rounded-none font-medium hover:bg-[#b01a42] transition-all"
             >
-                <span>←</span> All news in this category
+                <span>←</span> All News
             </Link>
         </div>
     );
