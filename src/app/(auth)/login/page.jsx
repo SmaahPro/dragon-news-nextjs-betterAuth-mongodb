@@ -2,17 +2,25 @@
 
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 const LoginPage = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+    const onSubmit = async (data) => {
+        const { email, password } = data;
 
-    const onSubmit = (data) => {
-        console.log("Login Data:", data);
+        const { data: res, error } = await authClient.signIn.email({
+            email,
+            password,
+            callbackURL: "/",
+        });
+
+        if (error) {
+            alert(error.message || "Login failed!");
+        } else {
+            console.log("Logged in successfully:", res);
+        }
     };
 
     return (

@@ -1,13 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 const RegisterPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
 
-    const onSubmit = (data) => {
-        console.log("Register Data:", data);
+    const onSubmit = async (data) => {
+        const { name, email, password, photo } = data;
+
+        const { data: res, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            image: photo,
+            callbackURL: "/",
+        });
+
+        if (error) {
+            alert(error.message || "Registration failed!");
+        } else {
+            console.log("Registered successfully:", res);
+
+            alert("Registration Successful!");
+
+            router.push("/");
+        }
     };
 
     return (
